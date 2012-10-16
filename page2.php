@@ -18,31 +18,9 @@
       }
     </script>
 
-<?php
-
-require_once("JWT.php");
-require_once("prettyJSON.php");
-
-$request = $_GET["req"];
-if (!$request) {
-  echo("No JWT found"); 
-  return;
-}
-
-$json = JWT::decode($request, null, false);
-
-?>
-    <div id="product">
-      <?php
-        $encoded = json_encode($json);
-        $pretty = pretty_json($encoded);
-        print($pretty);
-      ?>
-    <div>
     <footer>
-      <button type=button style="width:100px;height:100px" onclick="location.href='page2.php'">Go to page 2</button>
       <button type=button style="width:100px;height:100px" onclick="pay()">Pay!</button> 
-      <button type=button style="width:120px;height:100px" onclick="cancel()">Cancel!</button> 
+      <button type=button style="width:100px;height:100px" onclick="cancel()">Cancel!</button>
     </footer>
   </body>
 </html>
